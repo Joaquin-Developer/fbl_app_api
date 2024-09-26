@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from championships.u_cup_2024.router import router as u_cup_2024_router
+from championships.sa_cup_24.router import router as sa_cup_24_router
 from core.settings import settings
 
 
@@ -19,3 +20,4 @@ if settings.BACKEND_CORS_ORIGINS:
 
 
 app.include_router(u_cup_2024_router, prefix="/u_cup_2024", tags=["U Cup 2024"])
+app.include_router(sa_cup_24_router, prefix="/sa_cup_24", tags=["SA Cup 2024"])
