@@ -32,6 +32,12 @@ class MatchCreate(MatchBase):
     pass
 
 
+class MatchResult(BaseModel):
+    id: int
+    home_team_score: int
+    away_team_score: int
+
+
 class MatchResponse(MatchBase):
     id: int
     round: int
@@ -60,6 +66,21 @@ class StatisticsBase(BaseModel):
 class StatisticsResponse(StatisticsBase):
     id: int
     team_id: int
+
+    class Config:
+        orm_mode = True
+
+class TeamStatisticsResponse(BaseModel):
+    team_id: int
+    team_name: str
+    TP: int
+    WP: int
+    LP: int
+    DP: int
+    GF: int  # Goals For
+    GA: int  # Goals Against
+    DIFF: int  # GF - GA
+    PTS: int  # Points
 
     class Config:
         orm_mode = True

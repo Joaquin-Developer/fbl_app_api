@@ -1,1 +1,4 @@
-fastapi
+fastapi==0.114.2
+SQLAlchemy==2.0.34
+matplotlib==3.9.2
+pandas==2.2.2
