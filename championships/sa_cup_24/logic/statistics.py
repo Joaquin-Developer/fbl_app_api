@@ -23,6 +23,8 @@ TRANSLATIONS = {
         "Goals Against": "GC",
         "Goal Difference": "DG",
         "Points": "Puntos",
+        "greenLabel": "En verde clasificados a UC-25",
+        "yellowLabel": "En amarillo zona repechaje para UC-25",
     },
     Language.EN: {
         "Team Name": "Team",
@@ -34,6 +36,8 @@ TRANSLATIONS = {
         "Goals Against": "Goals Against",
         "Goal Difference": "Goal Diff",
         "Points": "Points",
+        "greenLabel": "In green: UC-25 qualified",
+        "yellowLabel": "In yellow: play-off zone for UC-25",
     },
 }
 
@@ -175,10 +179,23 @@ def generate_image(
         # Automatically adjust column width based on content
         table.auto_set_column_width(i)
 
+    # Set the background color for the first 6 rows
+    for i in range(len(df)):
+        for j in range(len(df.columns)):
+            if i < 5:
+                table[(i + 1, j)].set_facecolor("#dbeeca")  # Light green background
+            if i == 5:
+                table[(i + 1, j)].set_facecolor("#f2f2a2")  # Light yellow background
+            table[(i + 1, j)].set_edgecolor("black")  # Set cell edge color
+
+    # Add a label indicating that highlighted teams are qualified
+    ax.text(0.5, -0.1, labels["greenLabel"], ha="center", va="center", fontsize=8, color="green", transform=ax.transAxes)
+    ax.text(0.5, -0.25, labels["yellowLabel"], ha="center", va="center", fontsize=8, color="#dede44", transform=ax.transAxes)
+
     # Save the figure to a BytesIO object
     buf = BytesIO()
     # plt.savefig(buf, format="png", bbox_inches="tight")
-    plt.savefig(buf, format='png', bbox_inches='tight', dpi=150)  # Higher DPI for better quality
+    plt.savefig(buf, format="png", bbox_inches="tight", dpi=150)  # Higher DPI for better quality
     buf.seek(0)
 
     plt.close(fig)
