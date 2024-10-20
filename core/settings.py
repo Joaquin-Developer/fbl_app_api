@@ -14,7 +14,12 @@ class Settings(BaseSettings):
     ENVIRONMENT: str
 
     BACKEND_CORS_ORIGINS: List[AnyHttpUrl] = []
-    DATABASE_DSN: str
+
+    # databases dsn:
+    U_CUP_2024_DATABASE_DSN: str
+    SA_CUP_24_DATABASE_DSN: str
+
+    # apis 3rds:
     STATISTICS_SERVICE_URL: str = "http://127.0.0.1:8001"
 
     class Config:
