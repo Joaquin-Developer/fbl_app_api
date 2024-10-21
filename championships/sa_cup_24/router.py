@@ -80,12 +80,13 @@ def get_matches_last_date(db: Session = Depends(get_db)):
     """
     Return all matches for the last date.
     """
-    last_round = db.query(Match.round).filter(Match.played == True).order_by(Match.round.desc()).first()
+    last_round = db.query(Match.round).filter(Match.played == False).order_by(Match.round.asc()).first()[0]
+    logging.info("Last round is %s", str(last_round))
 
     if not last_round:
         return []
 
-    _all_matches = all_matches(db).filter(Match.round == last_round[0], Match.played == True)
+    _all_matches = all_matches(db).filter(Match.round == last_round) #, Match.played == True)
     return _all_matches.order_by(Match.round.asc(), Match.id.asc()).all()
 
 

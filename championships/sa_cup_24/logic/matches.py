@@ -19,7 +19,8 @@ def all_matches(db: Session) -> Query:
             Match.away_team_id,
             AwayTeam.name.label("away_team_name"),
             Match.home_team_score,
-            Match.away_team_score
+            Match.away_team_score,
+            Match.played
         )
         .join(HomeTeam, Match.home_team_id == HomeTeam.id)
         .join(AwayTeam, Match.away_team_id == AwayTeam.id)

@@ -189,8 +189,8 @@ def generate_image(
             table[(i + 1, j)].set_edgecolor("black")  # Set cell edge color
 
     # Add a label indicating that highlighted teams are qualified
-    ax.text(0.5, -0.1, labels["greenLabel"], ha="center", va="center", fontsize=8, color="green", transform=ax.transAxes)
-    ax.text(0.5, -0.25, labels["yellowLabel"], ha="center", va="center", fontsize=8, color="#dede44", transform=ax.transAxes)
+    ax.text(0.4, 0.05, labels["greenLabel"], ha="center", va="center", fontsize=8, color="green", transform=ax.transAxes)
+    ax.text(0.8, 0.05, labels["yellowLabel"], ha="center", va="center", fontsize=8, color="#dede44", transform=ax.transAxes)
 
     # Save the figure to a BytesIO object
     buf = BytesIO()

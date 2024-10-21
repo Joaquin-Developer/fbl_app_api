@@ -38,7 +38,7 @@ class MatchResult(BaseModel):
     away_team_score: int
 
 
-class MatchResponse(MatchBase):
+class MatchResponse(BaseModel):
     id: int
     round: int
     home_team_id: int
@@ -47,6 +47,7 @@ class MatchResponse(MatchBase):
     away_team_name: str
     home_team_score: int
     away_team_score: int
+    played: bool
 
     class Config:
         orm_mode = True
