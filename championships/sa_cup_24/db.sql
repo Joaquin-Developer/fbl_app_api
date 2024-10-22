@@ -31,7 +31,7 @@ CREATE TABLE statistics (
     FOREIGN KEY (team_id) REFERENCES teams(id)
 );
 
-CREATE VIEW team_statistics AS
+CREATE OR REPLACE VIEW team_statistics AS
 WITH dynamic_statistics AS (
     SELECT 
         t.id AS team_id,
@@ -97,4 +97,4 @@ SELECT
     (gf - ga) as DIFF,
     pts as PTS
 FROM dynamic_statistics
-ORDER BY 9 DESC, 8 DESC;
+ORDER BY 10 DESC, 9 DESC;
