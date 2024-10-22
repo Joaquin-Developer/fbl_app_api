@@ -19,7 +19,7 @@ class Settings(BaseSettings):
     U_CUP_2024_DATABASE_DSN: str
     SA_CUP_24_DATABASE_DSN: str
 
-    # apis 3rds:
+    # external apis/services:
     STATISTICS_SERVICE_URL: str = "http://127.0.0.1:8001"
 
     class Config:
