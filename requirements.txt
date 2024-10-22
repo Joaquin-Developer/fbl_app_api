@@ -2,3 +2,12 @@ fastapi==0.114.2
 SQLAlchemy==2.0.34
 matplotlib==3.9.2
 pandas==2.2.2
+pydantic==2.9.1
+pydantic-settings==2.5.2
+pydantic_core==2.23.3
+pytest==8.3.3
+uvicorn==0.30.6
+virtualenv==20.26.4
+mysql==0.0.3
+mysql-connector-python==9.0.0
+mysqlclient==2.2.4
