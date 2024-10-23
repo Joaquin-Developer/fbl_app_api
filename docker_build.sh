@@ -1,12 +1,5 @@
 #!/bin/bash
 
-docker build -t fbl-app-api .
-
-docker run -d --name fbl-app-api-container --network my_network -p 8007:8007 fbl-app-api
-
-
-#!/bin/bash
-
 # Variables
 IMAGE_NAME="fbl-app-api"
 CONTAINER_NAME="fbl-app-api-container"
