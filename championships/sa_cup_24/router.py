@@ -136,3 +136,12 @@ def statistics(db: Session = Depends(get_db)):
 @router.get("/statistics_img", response_class=StreamingResponse)
 def statistics_img(language: str = utils.Language.EN, db: Session = Depends(get_db)):
     return generate_image(db=db, language=language)
+
+
+@router.get("/round/{round_number}", response_model=List[MatchResponse])
+def get_round_by_number(round_number: int, db: Session = Depends(get_db)):
+    """
+    Return matches from a specified round
+    """
+    round_matches = all_matches(db).filter(Match.round == round_number)
+    return round_matches.order_by(Match.id.asc()).all()
